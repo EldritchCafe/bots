@@ -12,8 +12,9 @@
     "chunk-text": "^1.0.5",
     "humanize-duration": "^3.21.0",
     "iter-tools": "^6.2.6",
-    "masto": "^2.8.0",
+    "masto": "^2.8.1",
     "parse-iso-duration": "^1.1.0",
+    "string-strip-html": "^4.3.8",
     "ws": "^7.2.0",
     "yargs": "^14.2.0"
   },

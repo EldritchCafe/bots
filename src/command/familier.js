@@ -85,23 +85,23 @@ exports.handler = async (argv) => {
 				.map(message => prefix + message)
 
 			await messages.reduce(async (acc, message) => {
-					const previous = await acc
+				const previous = await acc
 
-					return client.createStatus(Object.assign(
-						{
-							status: message,
-							visibility: 'direct'
-						},
-						previous === null ? {} : { in_reply_to_id: previous.id }
-					))
-				}, Promise.resolve(null))
+				return client.createStatus(Object.assign(
+					{
+						status: message,
+						visibility: 'direct'
+					},
+					previous === null ? {} : { in_reply_to_id: previous.id }
+				))
+			}, Promise.resolve(null))
 
 			console.log(`Welcome message sent to ${follow.account.acct} in ${messages.length} status(es)`)
 		}
 	}
 
 	async function dissmiss(follow) {
-		await client.post(`/api/v1/notifications/${follow.id}/dismiss`)
+		await client.dismissNotification(follow.id)
 		console.log(`Dissmissed follow notification from ${follow.account.acct}`)
 	}
 }
